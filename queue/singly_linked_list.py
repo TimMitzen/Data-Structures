@@ -66,17 +66,9 @@ class LinkedList:
 
             self.length -= 1
 
-    def add_to_head(self, value):
-            new_node = Node(value)
 
-            if self.head is None and self.tail is None:
-                self.head = new_node
-                self.tail = new_node
-            else
 
-                new_node.next - self.head
 
-                self.head = new_node
         # General case:
         # Start at head and iterate to the next-to-last node
 
