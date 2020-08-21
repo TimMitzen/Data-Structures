@@ -8,12 +8,17 @@ class Node:
     def __init__(self, value, next=None):
         self.value = value
         self.next = next  # The next node in the list
+    def __str__(self):
+      pass
+
 class LinkedList:
     def __init__(self):
         self.head: Node = None  # points to the first node in the list
         self.tail: Node = None  # Points to the last node in the list
         self.length = 0
     def __str__(self):
+        pass
+    def __len__(self):
         pass
     def add_to_tail(self, value):
         # Check if there's a tail
@@ -56,19 +61,17 @@ class LinkedList:
             #  Return current_head.value
             self.length = self.length - 1
             return current_head.value
-    def remove_tail(self):
 
-        # Remove Tail:
-        # Check if it's there
-
+    def add_to_head(self, value):
         if self.head is None:
-            return False
-
-            self.length -= 1
-
-
-
-
+            new_node = None(value, None)
+            self.head = new_node
+            self.tail = new_node
+            self.length += 1
+        else:
+            new_node = Node(value, self.head)
+            self.head - new_node
+            self.length += 1
         # General case:
         # Start at head and iterate to the next-to-last node
 
@@ -82,3 +85,55 @@ class LinkedList:
         # Save the current_tail.value
         # Set self.tail to None
         # Set self.head to None
+    def remove_tail(self):
+
+        # Remove Tail:
+        # Check if it's there
+
+        if self.tail is None:
+            return None
+        elif self.head == self.tail:
+            current_tail = self.tail
+            self.tail = None
+            self.head = None
+            self.length -= 1
+            return current_tail.value
+        else:
+            current_node = self.head
+            while current_node.next != self.tail:
+                current_node = current_node.next
+            current_tail = self.tail
+            self.tail = current_node
+
+            current_node.next = None
+            self.length -= 1
+            return current_tail.value
+
+    def add_to_head(self,value):
+        if self.head is None:
+            new_node = None(value, None)
+            self.head = new_node
+            self.tail = new_node
+            self.length += 1
+        else:
+            new_node = Node(value, self.head)
+
+
+    def remove_at_index(self, index):
+        if index >= self.length:
+            return None
+        if self.length == 1 and index ==0:
+            target = self.head
+            self.head = None
+            self.tail = None
+            self.length -= 1
+            return target.value
+        prev_node = self.head
+        for i in range(index -1):
+            prev_node = prev_node.next
+        target = prev_node.next
+        prev_node.next = target.next
+        target.next = None
+        self.length -= 1
+
+        return target.value
