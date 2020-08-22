@@ -8,8 +8,7 @@ class Node:
     def __init__(self, value, next=None):
         self.value = value
         self.next = next  # The next node in the list
-    def __str__(self):
-      pass
+
 
 class LinkedList:
     def __init__(self):
@@ -19,7 +18,8 @@ class LinkedList:
     def __str__(self):
         pass
     def __len__(self):
-        pass
+        return self.length
+
     def add_to_tail(self, value):
         # Check if there's a tail
         # If there is no tail (empty list)
@@ -39,6 +39,7 @@ class LinkedList:
             # Set self.tail to the new node
             self.tail = new_tail
         self.length += 1
+
     def remove_head(self):
         # If not head (empty list)
         if self.head is None:  # if self.head is None
@@ -62,17 +63,7 @@ class LinkedList:
             self.length = self.length - 1
             return current_head.value
 
-    def add_to_head(self, value):
-            new_node = Node(value)
 
-            if self.head is None and self.tail is None:
-                self.head = new_node
-                self.tail = new_node
-            else:
-
-                new_node.next - self.head
-
-                self.head = new_node
         # General case:
         # Start at head and iterate to the next-to-last node
 
@@ -112,13 +103,13 @@ class LinkedList:
 
     def add_to_head(self,value):
         if self.head is None:
-            new_node = None(value, None)
+            new_node = Node(value, None)
             self.head = new_node
             self.tail = new_node
             self.length += 1
         else:
             new_node = Node(value, self.head)
-            self.head - new_node
+            self.head = new_node
             self.length += 1
 
 
