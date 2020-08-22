@@ -105,33 +105,48 @@ class DoublyLinkedList:
             return
         if self.head.next is None: #if its tail
             return None
-        value = node.value
+        value = node.data
         self.delete(node)
         self.add_to_head(value)
 
 
 
-"""
+
+    """
     Removes the input node from its current spot in the 
     List and inserts it as the new tail node of the List.
     """
-
     def move_to_end(self, node):
         if node is self.tail:
             return None
         value = node.data
         self.delete(node)
-        self.add_to_tail(value)
+        self.add_tail(value)
 
 
 
 
-"""
+    """
     Deletes the input node from the List, preserving the 
     order of the other elements of the List.
     """
     def delete(self, node):
+        if self.head == self.tail:
+            self.head = None
+            self.tail = None
+        # if node to delete is head
 
+        elif self.head == node:
+            self.head = node.next_node
+        # node.delete()
+            self.head.prev_node = None
+        # if node to delete is tail
+
+        elif self.tail == node:
+            self.tail = node.prev_node
+            self.tail.next_node = None
+        else:
+            node.delete()
 
 
 
