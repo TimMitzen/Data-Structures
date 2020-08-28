@@ -111,7 +111,7 @@ bst = BSTNode(1)  # This is our de facto "root"
 # bst.bft_print()
 # bst.dft_print()
 #
-# print("elegant methods")
+# print("elegant methoqds")
 # print("pre order")
 # bst.pre_order_dft()
 # print("in order")
